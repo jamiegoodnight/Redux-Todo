@@ -1,6 +1,7 @@
 
 export const ADD_TODO = 'ADD_TODO'
 export const COMPLETE_TODO = 'COMPLETE_TODO'
+export const CLEAR = 'CLEAR'
 
 export const addTodo = todo => {
     console.log(todo)
@@ -20,4 +21,9 @@ export const completeTodo = index => {
     }
 }
 
+export const clear = () => {
+    return {
+        type: CLEAR,
+    }
+}
 

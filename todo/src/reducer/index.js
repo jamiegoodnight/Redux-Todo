@@ -1,5 +1,6 @@
 import { ADD_TODO } from '../actions';
-import { COMPLETE_TODO } from '../actions'
+import { COMPLETE_TODO } from '../actions';
+import { CLEAR } from '../actions';
 
 const initialState = {
     todos: [
@@ -18,7 +19,8 @@ export const reducer = (state = initialState, action) => {
             todos: [...state.todos, action.payload]
         }
         case COMPLETE_TODO: 
-        return {...state,
+        return {
+            ...state,
             todos: state.todos.map((todo, index) => {
                 if (index===action.payload) {
                     return {...todo, completed: !todo.completed};
@@ -26,6 +28,11 @@ export const reducer = (state = initialState, action) => {
                     return todo;
                 }
             })
+        }
+        case CLEAR: 
+        return {
+            ...state,
+            todos: state.todos.filter(x => !x.completed)
         }
          default: 
          return state;  

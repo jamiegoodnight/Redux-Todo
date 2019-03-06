@@ -2,6 +2,7 @@
 export const ADD_TODO = 'ADD_TODO'
 export const COMPLETE_TODO = 'COMPLETE_TODO'
 export const CLEAR = 'CLEAR'
+export const SAVE = 'SAVE'
 
 export const addTodo = todo => {
     console.log(todo)
@@ -27,3 +28,8 @@ export const clear = () => {
     }
 }
 
+export const save = () => {
+    return {
+        type: SAVE,
+    }
+}
